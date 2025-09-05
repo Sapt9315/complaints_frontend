@@ -29,10 +29,6 @@ const AdminDashboard = () => {
   const [selectedComplaint, setSelectedComplaint] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    fetchData();
-  }, [filters, getAuthHeaders, fetchData]);
-
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
@@ -63,6 +59,10 @@ const AdminDashboard = () => {
       setLoading(false);
     }
   }, [filters, getAuthHeaders]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleStatusUpdate = async (complaintId, newStatus, resolution) => {
     try {

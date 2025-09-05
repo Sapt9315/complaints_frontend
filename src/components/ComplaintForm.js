@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -7,7 +7,6 @@ import { Send, User, AlertTriangle, Package, Clock, DollarSign, Shield, Trash2, 
 import MobileImageUpload from './MobileImageUpload';
 
 const ComplaintForm = () => {
-  const { branchId } = useParams();
   const [branches, setBranches] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

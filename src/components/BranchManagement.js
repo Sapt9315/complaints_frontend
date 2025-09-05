@@ -20,10 +20,6 @@ const BranchManagement = () => {
     isActive: true
   });
 
-  useEffect(() => {
-    fetchBranches();
-  }, [fetchBranches]);
-
   const fetchBranches = useCallback(async () => {
     try {
       const response = await axios.get('https://complaints-backend-mhrr.onrender.com/api/branches', {
@@ -37,6 +33,10 @@ const BranchManagement = () => {
       setLoading(false);
     }
   }, [getAuthHeaders]);
+
+  useEffect(() => {
+    fetchBranches();
+  }, [fetchBranches]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
