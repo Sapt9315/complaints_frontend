@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import { Send, User, AlertTriangle, Package, Clock, DollarSign, Shield, Trash2 } from 'lucide-react';
+import { Send, User, AlertTriangle, Package, Clock, DollarSign, Shield, Trash2, FileText } from 'lucide-react';
 import MobileImageUpload from './MobileImageUpload';
 
 const ComplaintForm = () => {
@@ -139,7 +139,8 @@ const ComplaintForm = () => {
   const fetchBranchDetails = async () => {
     try {
       const response = await axios.get(`https://complaints-backend-mhrr.onrender.com/api/branches/${branchId}`);
-      setBranch(response.data.branch);
+      // Branch details are not needed since we removed branch state
+      console.log('Branch details:', response.data.branch);
     } catch (error) {
       console.error('Error fetching branch details:', error);
       toast.error('Failed to load branch information');
@@ -434,7 +435,7 @@ const ComplaintForm = () => {
           {/* Additional Information */}
           <div className="pb-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-              <Receipt className="h-5 w-5 ml-2" />
+              <FileText className="h-5 w-5 ml-2" />
               معلومات إضافية (اختياري)
             </h2>
 
