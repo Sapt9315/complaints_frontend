@@ -3,17 +3,11 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { 
   BarChart3, 
-  Download, 
-  Filter, 
   RefreshCw, 
-  Eye, 
-  Edit3,
   MapPin,
-  Users,
   AlertTriangle,
   CheckCircle,
-  Clock,
-  XCircle
+  Clock
 } from 'lucide-react';
 
 const BranchDashboard = () => {
