@@ -18,19 +18,40 @@ const Header = () => {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 md:space-x-3">
-            <img src="/logo.png" alt="Logo" className="h-16 w-16 md:h-24 md:w-24" />
+        {/* Mobile Layout - Two Lines */}
+        <div className="block sm:hidden">
+          {/* First Line: Logo + Company Name */}
+          <div className="flex items-center justify-center space-x-2 mb-2">
+            <img src="/logo.png" alt="Logo" className="h-16 w-16" />
             <div>
-              <h1 className="text-sm md:text-lg font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
+              <h1 className="text-sm font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
+                اسواق سبت المركزية
+              </h1>
+            </div>
+          </div>
+          
+          {/* Second Line: Service Text */}
+          <div className="text-center">
+            <p className="text-sm text-gray-600 font-medium">
+              {isAdminRoute ? 'لوحة تحكم الإدارة' : 'خدمة العملاء'}
+            </p>
+          </div>
+        </div>
+
+        {/* Desktop Layout - Single Line */}
+        <div className="hidden sm:flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <img src="/logo.png" alt="Logo" className="h-24 w-24" />
+            <div>
+              <h1 className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
                 اسواق سبت المركزية
               </h1>
             </div>
           </div>
           
           {/* Centered Service Text */}
-          <div className="hidden sm:flex flex-1 justify-center">
-            <p className="text-xs md:text-sm text-gray-600 font-medium">
+          <div className="flex-1 flex justify-center">
+            <p className="text-sm text-gray-600 font-medium">
               {isAdminRoute ? 'لوحة تحكم الإدارة' : 'خدمة العملاء'}
             </p>
           </div>
