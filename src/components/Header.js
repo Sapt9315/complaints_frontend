@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MessageSquare, BarChart3, MapPin, Home, LogOut, User } from 'lucide-react';
+import { MessageSquare, BarChart3, MapPin, Home, LogOut, User, LogIn } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -73,17 +73,26 @@ const Header = () => {
                 </div>
               )}
             </div>
-          ) : !isLoginPage ? (
-            // Customer Navigation
-            <div className="flex items-center space-x-6">
-              <Link 
-                to="/" 
-                className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                <MessageSquare className="h-5 w-5" />
-                <span className="text-sm font-medium">تقديم شكوى</span>
-              </Link>
-            </div>
+                           ) : !isLoginPage ? (
+                   // Customer Navigation
+                   <div className="flex items-center space-x-6">
+                     <Link
+                       to="/"
+                       className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+                     >
+                       <MessageSquare className="h-5 w-5" />
+                       <span className="text-sm font-medium">تقديم شكوى</span>
+                     </Link>
+                     
+                     {/* Admin Login Button */}
+                     <Link
+                       to="/admin/login"
+                       className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                     >
+                       <LogIn className="h-4 w-4" />
+                       <span className="text-sm font-medium">دخول الإدارة</span>
+                     </Link>
+                   </div>
           ) : null}
         </div>
       </div>
