@@ -22,7 +22,7 @@ const Header = () => {
         <div className="block sm:hidden py-2">
           {/* First Line: Logo + Company Name */}
           <div className="flex items-center justify-center space-x-1 mb-1">
-            <img src="/logo.png" alt="Logo" className="h-10 w-10" />
+            <img src="/logo.png" alt="Logo" className="h-22 w-22" />
             <div>
               <h1 className="text-xs font-bold text-gray-900 leading-tight" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
                 اسواق سبت المركزية
