@@ -41,7 +41,7 @@ const MobileImageUpload = ({
         const formData = new FormData();
         formData.append('image', file);
         
-        const response = await axios.post('http://localhost:3000/api/upload/upload-single', formData, {
+        const response = await axios.post('https://complaints-backend-mhrr.onrender.com/api/upload/upload-single', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -72,7 +72,7 @@ const MobileImageUpload = ({
     try {
       // Delete from Cloudinary
       if (fileToRemove?.publicId) {
-        await axios.delete(`http://localhost:3000/api/upload/delete/${fileToRemove.publicId}`);
+        await axios.delete(`https://complaints-backend-mhrr.onrender.com/api/upload/delete/${fileToRemove.publicId}`);
       }
       
       // Remove from state

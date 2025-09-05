@@ -44,11 +44,11 @@ const AdminDashboard = () => {
       });
       
       const [complaintsRes, branchesRes, statsRes] = await Promise.all([
-        axios.get(`http://localhost:3000/api/admin/complaints?${complaintParams}`, {
+        axios.get(`https://complaints-backend-mhrr.onrender.com/api/admin/complaints?${complaintParams}`, {
           headers: getAuthHeaders()
         }),
-        axios.get('http://localhost:3000/api/branches'),
-        axios.get('http://localhost:3000/api/admin/stats', {
+        axios.get('https://complaints-backend-mhrr.onrender.com/api/branches'),
+        axios.get('https://complaints-backend-mhrr.onrender.com/api/admin/stats', {
           headers: getAuthHeaders()
         })
       ]);
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
 
   const handleStatusUpdate = async (complaintId, newStatus, resolution) => {
     try {
-      await axios.put(`http://localhost:3000/api/admin/complaints/${complaintId}/status`, {
+      await axios.put(`https://complaints-backend-mhrr.onrender.com/api/admin/complaints/${complaintId}/status`, {
         status: newStatus,
         resolution: resolution
       }, {
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
         if (value && key !== 'limit') params.append(key, value);
       });
       
-      const response = await axios.get(`http://localhost:3000/api/admin/export?${params}`, {
+      const response = await axios.get(`https://complaints-backend-mhrr.onrender.com/api/admin/export?${params}`, {
         responseType: 'blob',
         headers: getAuthHeaders()
       });

@@ -26,7 +26,7 @@ const BranchManagement = () => {
 
   const fetchBranches = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/branches', {
+      const response = await axios.get('https://complaints-backend-mhrr.onrender.com/api/branches', {
         headers: getAuthHeaders()
       });
       setBranches(response.data.branches || response.data);
@@ -52,13 +52,13 @@ const BranchManagement = () => {
     try {
       if (editingBranch) {
         // Update existing branch
-        await axios.put(`http://localhost:3000/api/branches/${editingBranch._id}`, formData, {
+        await axios.put(`https://complaints-backend-mhrr.onrender.com/api/branches/${editingBranch._id}`, formData, {
           headers: getAuthHeaders()
         });
         toast.success('Branch updated successfully!');
       } else {
         // Create new branch
-        await axios.post('http://localhost:3000/api/branches', formData, {
+        await axios.post('https://complaints-backend-mhrr.onrender.com/api/branches', formData, {
           headers: getAuthHeaders()
         });
         toast.success('Branch created successfully!');
@@ -99,7 +99,7 @@ const BranchManagement = () => {
   const handleDelete = async (branchId) => {
     if (window.confirm('Are you sure you want to deactivate this branch?')) {
       try {
-        await axios.delete(`http://localhost:3000/api/branches/${branchId}`, {
+        await axios.delete(`https://complaints-backend-mhrr.onrender.com/api/branches/${branchId}`, {
           headers: getAuthHeaders()
         });
         toast.success('Branch deactivated successfully!');
@@ -113,7 +113,7 @@ const BranchManagement = () => {
 
   const handleRestore = async (branchId) => {
     try {
-      await axios.patch(`http://localhost:3000/api/branches/${branchId}/restore`, {}, {
+      await axios.patch(`https://complaints-backend-mhrr.onrender.com/api/branches/${branchId}/restore`, {}, {
         headers: getAuthHeaders()
       });
       toast.success('Branch restored successfully!');

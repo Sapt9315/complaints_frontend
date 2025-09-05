@@ -21,7 +21,7 @@ const ComplaintStatus = () => {
   const fetchComplaintStatus = async (number) => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:3000/api/complaints/status/${number}`);
+      const response = await axios.get(`https://complaints-backend-mhrr.onrender.com/api/complaints/status/${number}`);
       setComplaint(response.data.complaint);
     } catch (error) {
       console.error('Error fetching complaint status:', error);

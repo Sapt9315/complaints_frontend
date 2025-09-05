@@ -118,14 +118,14 @@ const ComplaintForm = () => {
 
   const fetchBranches = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/branches/active');
+      const response = await axios.get('https://complaints-backend-mhrr.onrender.com/api/branches/active');
       console.log('Fetched branches:', response.data);
       setBranches(response.data);
     } catch (error) {
       console.error('Error fetching active branches, trying all branches:', error);
       try {
         // Fallback to all branches if active endpoint fails
-        const fallbackResponse = await axios.get('http://localhost:3000/api/branches');
+        const fallbackResponse = await axios.get('https://complaints-backend-mhrr.onrender.com/api/branches');
         const allBranches = fallbackResponse.data.branches || fallbackResponse.data;
         console.log('Fetched all branches as fallback:', allBranches);
         setBranches(allBranches);
@@ -138,7 +138,7 @@ const ComplaintForm = () => {
 
   const fetchBranchDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/branches/${branchId}`);
+      const response = await axios.get(`https://complaints-backend-mhrr.onrender.com/api/branches/${branchId}`);
       setBranch(response.data.branch);
     } catch (error) {
       console.error('Error fetching branch details:', error);
@@ -171,7 +171,7 @@ const ComplaintForm = () => {
 
       console.log('Submitting complaint data:', submitData);
 
-      const response = await axios.post('http://localhost:3000/api/complaints', submitData);
+      const response = await axios.post('https://complaints-backend-mhrr.onrender.com/api/complaints', submitData);
       
       setComplaintNumber(response.data.complaintNumber);
       setIsSubmitted(true);

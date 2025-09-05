@@ -30,7 +30,7 @@ const BranchDashboard = () => {
   const fetchBranches = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3000/api/branches');
+      const response = await axios.get('https://complaints-backend-mhrr.onrender.com/api/branches');
       setBranches(response.data.branches);
       if (response.data.branches.length > 0) {
         setSelectedBranch(response.data.branches[0]);
@@ -46,8 +46,8 @@ const BranchDashboard = () => {
   const fetchBranchData = async (branchId) => {
     try {
       const [complaintsRes, statsRes] = await Promise.all([
-        axios.get(`http://localhost:3000/api/complaints/branch/${branchId}`),
-        axios.get(`http://localhost:3000/api/admin/stats?branch_id=${branchId}`)
+        axios.get(`https://complaints-backend-mhrr.onrender.com/api/complaints/branch/${branchId}`),
+        axios.get(`https://complaints-backend-mhrr.onrender.com/api/admin/stats?branch_id=${branchId}`)
       ]);
 
       setComplaints(complaintsRes.data.complaints);
