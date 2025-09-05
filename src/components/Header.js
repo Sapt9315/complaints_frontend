@@ -20,40 +20,44 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src="/logo.png" alt="Logo" className="h-20 w-20" />
+            <img src="/logo.png" alt="Logo" className="h-24 w-24" />
             <div>
-              <h1 className="text-xl font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
+              <h1 className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
                 اسواق سبت المركزية
               </h1>
-              <p className="text-sm text-gray-600">
-                {isAdminRoute ? 'لوحة تحكم الإدارة' : 'خدمة العملاء'}
-              </p>
             </div>
+          </div>
+          
+          {/* Centered Service Text */}
+          <div className="flex-1 flex justify-center">
+            <p className="text-sm text-gray-600 font-medium">
+              {isAdminRoute ? 'لوحة تحكم الإدارة' : 'خدمة العملاء'}
+            </p>
           </div>
           
           {isAdminRoute && !isLoginPage ? (
             // Admin Navigation
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-3">
               <Link 
                 to="/admin" 
                 className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <BarChart3 className="h-5 w-5" />
-                <span className="text-sm font-medium">لوحة التحكم</span>
+                <span className="text-sm font-medium">التحكم</span>
               </Link>
               <Link 
                 to="/admin/branches" 
                 className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <MapPin className="h-5 w-5" />
-                <span className="text-sm font-medium">إدارة الفروع</span>
+                <span className="text-sm font-medium">إدارة</span>
               </Link>
               <Link 
                 to="/admin/branch-dashboard" 
                 className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <Building2 className="h-5 w-5" />
-                <span className="text-sm font-medium">لوحة الفروع</span>
+                <span className="text-sm font-medium">الفروع</span>
               </Link>
               <Link 
                 to="/" 
