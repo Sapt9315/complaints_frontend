@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useAuth } from '../contexts/AuthContext';
@@ -31,9 +31,9 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     fetchData();
-  }, [filters, getAuthHeaders]);
+  }, [filters, getAuthHeaders, fetchData]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setLoading(true);
       
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters, getAuthHeaders]);
 
   const handleStatusUpdate = async (complaintId, newStatus, resolution) => {
     try {

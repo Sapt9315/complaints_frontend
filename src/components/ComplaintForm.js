@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -111,10 +111,7 @@ const ComplaintForm = () => {
 
   useEffect(() => {
     fetchBranches();
-    if (branchId) {
-      fetchBranchDetails();
-    }
-  }, [branchId, fetchBranchDetails]);
+  }, []);
 
   const fetchBranches = async () => {
     try {
@@ -136,16 +133,6 @@ const ComplaintForm = () => {
     }
   };
 
-  const fetchBranchDetails = async () => {
-    try {
-      const response = await axios.get(`https://complaints-backend-mhrr.onrender.com/api/branches/${branchId}`);
-      // Branch details are not needed since we removed branch state
-      console.log('Branch details:', response.data.branch);
-    } catch (error) {
-      console.error('Error fetching branch details:', error);
-      toast.error('Failed to load branch information');
-    }
-  };
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);

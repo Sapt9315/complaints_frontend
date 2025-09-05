@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Plus, Edit, Trash2, Save, X, MapPin, Phone, Mail, User, Building2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
@@ -22,9 +22,9 @@ const BranchManagement = () => {
 
   useEffect(() => {
     fetchBranches();
-  }, [getAuthHeaders]);
+  }, [fetchBranches]);
 
-  const fetchBranches = async () => {
+  const fetchBranches = useCallback(async () => {
     try {
       const response = await axios.get('https://complaints-backend-mhrr.onrender.com/api/branches', {
         headers: getAuthHeaders()
@@ -36,7 +36,7 @@ const BranchManagement = () => {
       toast.error('Failed to fetch branches');
       setLoading(false);
     }
-  };
+  }, [getAuthHeaders]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
