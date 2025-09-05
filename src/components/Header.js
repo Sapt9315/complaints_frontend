@@ -18,13 +18,13 @@ const Header = () => {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="container mx-auto px-4 py-2 sm:py-4">
-        {/* Mobile Layout - Two Lines */}
-        <div className="block md:hidden py-2">
+        {/* Mobile Layout - Two Lines - Force Mobile */}
+        <div className="flex flex-col md:hidden py-2">
           {/* First Line: Logo + Company Name */}
-          <div className="flex items-center justify-center space-x-2 mb-2">
-            <img src="/logo.png" alt="Logo" className="h-20 w-20" />
+          <div className="flex items-center justify-center space-x-3 mb-2">
+            <img src="/logo.png" alt="Logo" className="h-24 w-24" />
             <div>
-              <h1 className="text-sm font-bold text-gray-900 leading-tight" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
+              <h1 className="text-lg font-bold text-gray-900 leading-tight" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
                 اسواق سبت المركزية
               </h1>
             </div>
@@ -32,7 +32,7 @@ const Header = () => {
           
           {/* Second Line: Service Text */}
           <div className="text-center">
-            <p className="text-sm text-gray-600 font-medium">
+            <p className="text-base text-gray-600 font-medium">
               {isAdminRoute ? 'لوحة تحكم الإدارة' : 'خدمة العملاء'}
             </p>
           </div>
