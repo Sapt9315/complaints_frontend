@@ -22,7 +22,6 @@ const Header = () => {
         <div className="flex flex-col md:hidden py-2">
           {/* First Line: Logo + Company Name */}
           <div className="flex items-center justify-center space-x-3 mb-2">
-            <img src="/logo.png" alt="Logo" className="h-24 w-24" />
             <div>
               <h1 className="text-lg font-bold text-gray-900 leading-tight" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
                 اسواق سبت المركزية
@@ -41,7 +40,6 @@ const Header = () => {
         {/* Desktop Layout - Single Line */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src="/logo.png" alt="Logo" className="h-24 w-24" />
             <div>
               <h1 className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
                 اسواق سبت المركزية
