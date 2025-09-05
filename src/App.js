@@ -6,6 +6,7 @@ import ComplaintForm from './components/ComplaintForm';
 import ComplaintStatus from './components/ComplaintStatus';
 import AdminDashboard from './components/AdminDashboard';
 import BranchManagement from './components/BranchManagement';
+import BranchDashboard from './components/BranchDashboard';
 import LoginPage from './components/LoginPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import Header from './components/Header';
@@ -30,6 +31,11 @@ function App() {
               <Route path="/admin/branches" element={
                 <ProtectedRoute>
                   <BranchManagement />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/branch-dashboard" element={
+                <ProtectedRoute>
+                  <BranchDashboard />
                 </ProtectedRoute>
               } />
             </Routes>

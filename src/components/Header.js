@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MessageSquare, BarChart3, MapPin, Home, LogOut, User, LogIn } from 'lucide-react';
+import { MessageSquare, BarChart3, MapPin, Home, LogOut, User, LogIn, Building2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -20,9 +20,9 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src="/logo.png" alt="Logo" className="h-16 w-16" />
+            <img src="/logo.png" alt="Logo" className="h-20 w-20" />
             <div>
-              <h1 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
+              <h1 className="text-xl font-bold text-gray-900" style={{ fontFamily: 'Noor, Arial, sans-serif' }}>
                 اسواق سبت المركزية
               </h1>
               <p className="text-sm text-gray-600">
@@ -47,6 +47,13 @@ const Header = () => {
               >
                 <MapPin className="h-5 w-5" />
                 <span className="text-sm font-medium">إدارة الفروع</span>
+              </Link>
+              <Link 
+                to="/admin/branch-dashboard" 
+                className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <Building2 className="h-5 w-5" />
+                <span className="text-sm font-medium">لوحة الفروع</span>
               </Link>
               <Link 
                 to="/" 
@@ -86,7 +93,7 @@ const Header = () => {
                      
                      {/* Admin Login Button */}
                      <Link
-                       to="/admin/login"
+                       to="/admin"
                        className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                      >
                        <LogIn className="h-4 w-4" />
