@@ -9,9 +9,6 @@ import {
   RefreshCw, 
   Eye, 
   Edit3,
-  Calendar,
-  MapPin,
-  User,
   AlertTriangle,
   XCircle
 } from 'lucide-react';
@@ -34,7 +31,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     fetchData();
-  }, [filters]);
+  }, [filters, getAuthHeaders]);
 
   const fetchData = async () => {
     try {
@@ -411,7 +408,7 @@ const AdminDashboard = () => {
                             <img
                               key={index}
                               src={attachment.imageUrl}
-                              alt={`Image ${index + 1}`}
+                              alt={`الشكوى ${index + 1}`}
                               className="w-8 h-8 rounded-full border-2 border-white object-cover"
                               title={`Image ${index + 1}`}
                             />

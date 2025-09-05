@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Camera, Image, Upload, X, Trash2, Plus } from 'lucide-react';
+import { Camera, Image, Upload, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 

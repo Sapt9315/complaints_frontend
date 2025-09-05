@@ -22,7 +22,7 @@ const BranchManagement = () => {
 
   useEffect(() => {
     fetchBranches();
-  }, []);
+  }, [getAuthHeaders]);
 
   const fetchBranches = async () => {
     try {

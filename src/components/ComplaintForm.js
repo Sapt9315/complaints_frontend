@@ -3,12 +3,11 @@ import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import { Send, User, Mail, Phone, AlertTriangle, Calendar, Receipt, Upload, Camera, Package, Clock, DollarSign, Shield, Trash2 } from 'lucide-react';
+import { Send, User, AlertTriangle, Package, Clock, DollarSign, Shield, Trash2 } from 'lucide-react';
 import MobileImageUpload from './MobileImageUpload';
 
 const ComplaintForm = () => {
   const { branchId } = useParams();
-  const [branch, setBranch] = useState(null);
   const [branches, setBranches] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -115,7 +114,7 @@ const ComplaintForm = () => {
     if (branchId) {
       fetchBranchDetails();
     }
-  }, [branchId]);
+  }, [branchId, fetchBranchDetails]);
 
   const fetchBranches = async () => {
     try {

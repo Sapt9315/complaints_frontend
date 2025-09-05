@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, MessageSquare, BarChart3, MapPin, Home, LogOut, User } from 'lucide-react';
+import { MessageSquare, BarChart3, MapPin, Home, LogOut, User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
 
