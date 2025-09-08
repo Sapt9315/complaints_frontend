@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
@@ -24,19 +24,19 @@ const ComplaintForm = () => {
   const watchedComplaintType = watch('complaintType');
 
   // Helpers to format current date/time for inputs
-  const formatDate = (date) => {
+  const formatDate = useCallback((date) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
-  };
+  }, []);
 
-  const formatDateTimeLocal = (date) => {
+  const formatDateTimeLocal = useCallback((date) => {
     const yyyyMmDd = formatDate(date);
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     return `${yyyyMmDd}T${hours}:${minutes}`;
-  };
+  }, [formatDate]);
 
   // Initialize date fields to today by default, but allow user to change
   useEffect(() => {
@@ -54,10 +54,10 @@ const ComplaintForm = () => {
     if (!watch('purchaseDate')) {
       setValue('purchaseDate', formatDate(today));
     }
-  }, [watchedComplaintType]);
+  }, [watchedComplaintType, setValue, watch, formatDate, formatDateTimeLocal, complaintTypeFields]);
 
   // Dynamic field configurations for each complaint type
-  const complaintTypeFields = {
+  const complaintTypeFields = useMemo(() => ({
     product_quality: {
       icon: Package,
       title: "مشكلة جودة المنتج",
@@ -139,7 +139,7 @@ const ComplaintForm = () => {
       imageRequired: false,
       imageLabel: 'رفع صورة (إن أمكن)'
     }
-  };
+  }), []);
 
   useEffect(() => {
     fetchBranches();
