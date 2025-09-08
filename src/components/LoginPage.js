@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Eye, EyeOff, Lock, User, LogIn } from 'lucide-react';
 import toast from 'react-hot-toast';
-import axios from 'axios';
+// axios removed; using AuthContext.login instead
 import { useAuth } from '../contexts/AuthContext';
 
 const LoginPage = () => {
