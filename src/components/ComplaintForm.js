@@ -17,10 +17,44 @@ const ComplaintForm = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    watch
+    watch,
+    setValue
   } = useForm();
 
   const watchedComplaintType = watch('complaintType');
+
+  // Helpers to format current date/time for inputs
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const formatDateTimeLocal = (date) => {
+    const yyyyMmDd = formatDate(date);
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${yyyyMmDd}T${hours}:${minutes}`;
+  };
+
+  // Initialize date fields to today by default, but allow user to change
+  useEffect(() => {
+    const today = new Date();
+    const fields = complaintTypeFields[watchedComplaintType]?.fields || [];
+    fields.forEach((field) => {
+      if (field.type === 'date' && !watch(field.name)) {
+        setValue(field.name, formatDate(today));
+      }
+      if (field.type === 'datetime-local' && !watch(field.name)) {
+        setValue(field.name, formatDateTimeLocal(today));
+      }
+    });
+    // Also set default for optional additional purchase date if empty
+    if (!watch('purchaseDate')) {
+      setValue('purchaseDate', formatDate(today));
+    }
+  }, [watchedComplaintType]);
 
   // Dynamic field configurations for each complaint type
   const complaintTypeFields = {

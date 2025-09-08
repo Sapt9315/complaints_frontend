@@ -410,7 +410,7 @@ const AdminDashboard = () => {
                               src={attachment.imageUrl}
                               alt={`الشكوى ${index + 1}`}
                               className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                              title={`Image ${index + 1}`}
+                              title={`صورة ${index + 1}`}
                             />
                           ))}
                         </div>
@@ -526,7 +526,7 @@ const AdminDashboard = () => {
                 {/* Attachments Display */}
                 {selectedComplaint.attachments && selectedComplaint.attachments.length > 0 && (
                   <div>
-                    <label className="form-label">Attached Images ({selectedComplaint.attachments.length})</label>
+                    <label className="form-label">الصور المرفقة ({selectedComplaint.attachments.length})</label>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {selectedComplaint.attachments.map((attachment, index) => (
                         <div key={index} className="relative group">
@@ -545,8 +545,8 @@ const AdminDashboard = () => {
                           </div>
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white text-xs p-2 rounded-b-lg">
                             <div className="flex items-center justify-between">
-                              <span>Image {index + 1}</span>
-                              <span className="text-xs opacity-75">Click to enlarge</span>
+                              <span>صورة {index + 1}</span>
+                              <span className="text-xs opacity-75">انقر للتكبير</span>
                             </div>
                           </div>
                         </div>
@@ -559,7 +559,7 @@ const AdminDashboard = () => {
                 )}
 
                 <div>
-                  <label className="form-label">Current Status</label>
+                  <label className="form-label">الحالة الحالية</label>
                   <span className={`status-badge ${getStatusColor(selectedComplaint.status)}`}>
                     {selectedComplaint.status.replace('_', ' ')}
                   </span>

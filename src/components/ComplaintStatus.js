@@ -168,7 +168,7 @@ const ComplaintStatus = () => {
               </div>
             </div>
 
-            {/* Complaint Details */}
+            {/* تفاصيل الشكوى */}
             <div className="bg-white border rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <FileText className="h-5 w-5 mr-2" />
@@ -196,7 +196,7 @@ const ComplaintStatus = () => {
               </div>
             </div>
 
-            {/* Resolution */}
+            {/* نتيجة المعالجة */}
             {complaint.resolution && (
               <div className="bg-green-50 border border-green-200 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-green-900 mb-2">نتيجة المعالجة</h3>
