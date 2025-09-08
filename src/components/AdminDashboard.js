@@ -479,37 +479,46 @@ const AdminDashboard = () => {
 
               <div className="space-y-4 mb-6">
                 <div>
-                  <label className="form-label">Customer Name</label>
+                  <label className="form-label">اسم العميل</label>
                   <p className="text-gray-900">{selectedComplaint.customerName}</p>
                 </div>
 
                 {selectedComplaint.customerPhone && (
                   <div>
-                    <label className="form-label">Phone Number</label>
+                    <label className="form-label">رقم الهاتف</label>
                     <p className="text-gray-900">{selectedComplaint.customerPhone}</p>
                   </div>
                 )}
 
                 <div>
-                  <label className="form-label">Description</label>
+                  <label className="form-label">الوصف</label>
                   <p className="text-gray-900">{selectedComplaint.description}</p>
                 </div>
 
                 {/* Dynamic Fields Display */}
                 {selectedComplaint.dynamicFields && Object.keys(selectedComplaint.dynamicFields).length > 0 && (
                   <div>
-                    <label className="form-label">Additional Details</label>
+                    <label className="form-label">تفاصيل إضافية</label>
                     <div className="bg-gray-50 p-3 rounded-lg">
-                      {Object.entries(selectedComplaint.dynamicFields).map(([key, value]) => (
-                        value && (
+                      {Object.entries(selectedComplaint.dynamicFields).map(([key, value]) => {
+                        if (!value) return null;
+                        const arabicKeyMap = {
+                          staffName: 'اسم الموظف',
+                          incidentDateTime: 'وقت وتاريخ الواقعة',
+                          complaintDetails: 'تفاصيل الشكوى',
+                          complaintType: 'نوع الشكوى',
+                          branch: 'الفرع',
+                        };
+                        const label = arabicKeyMap[key] || key.replace(/([A-Z])/g, ' $1').trim();
+                        return (
                           <div key={key} className="mb-2">
-                            <span className="font-medium text-gray-700 capitalize">
-                              {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:
+                            <span className="font-medium text-gray-700">
+                              {label}:
                             </span>
                             <span className="ml-2 text-gray-900">{value}</span>
                           </div>
-                        )
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 )}

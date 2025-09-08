@@ -4,11 +4,13 @@ import { useForm } from 'react-hook-form';
 import { Eye, EyeOff, Lock, User, LogIn } from 'lucide-react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const {
     register,
@@ -19,20 +21,12 @@ const LoginPage = () => {
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {
-      const response = await axios.post('https://complaints-backend-mhrr.onrender.com/api/auth/login', {
-        username: data.username,
-        password: data.password
-      });
-
-      if (response.data.success) {
-        // Store token in localStorage
-        localStorage.setItem('adminToken', response.data.token);
-        localStorage.setItem('adminUser', JSON.stringify(response.data.admin));
-        
+      const result = await login(data.username, data.password);
+      if (result.success) {
         toast.success('تم تسجيل الدخول بنجاح!');
-        navigate('/admin');
+        navigate('/admin', { replace: true });
       } else {
-        toast.error(response.data.message || 'فشل في تسجيل الدخول');
+        toast.error(result.message || 'فشل في تسجيل الدخول');
       }
     } catch (error) {
       console.error('Login error:', error);

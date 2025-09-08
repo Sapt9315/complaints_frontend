@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/login', {
+      const response = await axios.post('https://complaints-backend-mhrr.onrender.com/api/auth/login', {
         username,
         password
       });

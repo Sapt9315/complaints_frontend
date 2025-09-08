@@ -172,24 +172,24 @@ const ComplaintStatus = () => {
             <div className="bg-white border rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <FileText className="h-5 w-5 mr-2" />
-                Complaint Details
+                تفاصيل الشكوى
               </h3>
               
               <div className="space-y-4">
                 <div>
-                  <span className="font-medium text-gray-600">Complaint Type:</span>
+                  <span className="font-medium text-gray-600">نوع الشكوى:</span>
                   <p className="text-gray-900 capitalize">
                     {complaint.complaintType.replace('_', ' ')}
                   </p>
                 </div>
                 
                 <div>
-                  <span className="font-medium text-gray-600">Description:</span>
+                  <span className="font-medium text-gray-600">الوصف:</span>
                   <p className="text-gray-900 mt-1">{complaint.description}</p>
                 </div>
                 
                 <div>
-                  <span className="font-medium text-gray-600">Branch:</span>
+                  <span className="font-medium text-gray-600">الفرع:</span>
                   <p className="text-gray-900">{complaint.branchName}</p>
                   <p className="text-sm text-gray-600">{complaint.branchAddress}</p>
                 </div>
@@ -199,7 +199,7 @@ const ComplaintStatus = () => {
             {/* Resolution */}
             {complaint.resolution && (
               <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-green-900 mb-2">Resolution</h3>
+                <h3 className="text-lg font-semibold text-green-900 mb-2">نتيجة المعالجة</h3>
                 <p className="text-green-800">{complaint.resolution}</p>
               </div>
             )}
