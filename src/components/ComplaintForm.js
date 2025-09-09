@@ -338,7 +338,7 @@ const ComplaintForm = () => {
                 <option value="product_quality">مشكلة جودة المنتج</option>
                 <option value="service_issue">مشكلة في الخدمة</option>
                 <option value="staff_behavior">سلوك الموظفين</option>
-                <option value="pricing_dispute">نزاع في الأسعار</option>
+                <option value="pricing_dispute">الأسعار</option>
                 <option value="cleanliness">النظافة/الصحة</option>
                 <option value="waiting_time">وقت انتظار طويل</option>
                 <option value="other">أخرى</option>
