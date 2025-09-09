@@ -81,7 +81,7 @@ const ComplaintForm = () => {
     },
     pricing_dispute: {
       icon: DollarSign,
-      title: "نزاع في الأسعار",
+      title: "الأسعار",
       fields: [
         { name: 'productName', label: 'اسم المنتج/الرقم التسلسلي *', type: 'text', required: true, placeholder: 'أدخل اسم المنتج أو الرقم التسلسلي' },
         { name: 'receiptPrice', label: 'السعر على الإيصال *', type: 'number', required: true, placeholder: '0.00', step: '0.01' },
